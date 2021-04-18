@@ -1,1 +1,14 @@
+server:
+  port: 8080
 
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/kakeibo
+    username: root
+    password: root
+
+mybatis:
+  mapper-locations: classpath*:/mybatis/sqls/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
