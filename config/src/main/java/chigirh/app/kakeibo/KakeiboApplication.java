@@ -1,4 +1,4 @@
-package chigirh.app.kakeibo.kakeiboapplication;
+package chigirh.app.kakeibo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
