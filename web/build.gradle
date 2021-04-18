@@ -2,8 +2,12 @@ dependencies {
     implementation project(':application')
     implementation project(':domain')
 
-    implementation 'org.springframework.boot:spring-boot-starter-security'
-    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-    implementation 'org.springframework.session:spring-session-core'
-    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+    implementation 'org.springframework.boot:spring-boot-starter-validation:2.4.5'
+
+//    implementation 'org.springframework.boot:spring-boot-starter-security:2.4.5'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:2.4.5'
+//    implementation 'org.springframework.session:spring-session-core'
+//    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+
+//    testImplementation 'org.springframework.security:spring-security-test'
 }

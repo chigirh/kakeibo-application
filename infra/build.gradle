@@ -1,7 +1,6 @@
 dependencies {
-    implementation project(':config')
     implementation project(':application')
     implementation project(':domain')
-    //implementation 'org.postgresql:postgresql:42.2.18'
-    //implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4'
+    implementation 'org.postgresql:postgresql:42.2.18'
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4'
 }
