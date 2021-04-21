@@ -2,8 +2,10 @@ package chigirh.app.kakeibo.web.controller.sample;
 
 import chigirh.app.kakeibo.application.usecase.sample.CreateSampleUseCase;
 import chigirh.app.kakeibo.domain.entity.Sample;
+import chigirh.app.kakeibo.domain.error.business.KakeiboBusinessException;
 import chigirh.app.kakeibo.web.form.sample.CreateSampleForm;
 import lombok.RequiredArgsConstructor;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -44,5 +46,14 @@ public class SampleController {
 
         return mav;
 
+    }
+
+    @ExceptionHandler(KakeiboBusinessException.class)
+    public ModelAndView testExceptionHandle(KakeiboBusinessException e, Model model) {
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("form", new CreateSampleForm());
+        mav.addObject("message", e.getMessage());
+        mav.setViewName("sample/index");
+        return mav;
     }
 }

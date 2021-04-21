@@ -1,19 +1,21 @@
 package chigirh.app.kakeibo.application.usecase.sample;
 
 import chigirh.app.kakeibo.application.repository.sample.SampleRepository;
-import chigirh.app.kakeibo.application.usecase.UpdateUsecase;
+import chigirh.app.kakeibo.application.usecase.UseCase;
+import chigirh.app.kakeibo.application.usecase.UseCaseBase;
 import chigirh.app.kakeibo.domain.entity.Sample;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Arrays;
 import java.util.Collections;
 
-@Component
+@UseCase
+@Transactional(rollbackFor = Exception.class)
 @RequiredArgsConstructor
-public class CreateSampleUseCase extends UpdateUsecase<CreateSampleUseCase.Input, Void> {
+public class CreateSampleUseCase extends UseCaseBase<CreateSampleUseCase.Input, Void> {
 
     final SampleRepository sampleRepository;
 
@@ -34,7 +36,7 @@ public class CreateSampleUseCase extends UpdateUsecase<CreateSampleUseCase.Input
 
     @AllArgsConstructor
     @Data
-    public static class Input implements UpdateUsecase.UpdateInput {
+    public static class Input implements UseCaseBase.UpdateInput {
         private Sample entity;
     }
 
