@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Collections;
 
 @UseCase
-@Transactional(rollbackFor = Exception.class)
 @RequiredArgsConstructor
 @Transactional(rollbackFor = Exception.class)
 public class CreateSampleUseCase extends UseCaseBase<CreateSampleUseCase.Input, Void> {
