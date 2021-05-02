@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="chigirh.app.kakeibo.infra.mapper.reader.SampleReaderMapper">
+    <select id="findSamples" resultType="chigirh.app.kakeibo.infra.dto.sample.SampleDto">
+        SELECT
+            key,
+            value,
+            version
+        FROM main.sample
+        <if test="orderByClause != null">
+            ${orderByClause}
+        </if>
+        OFFSET #{offset}
+        LIMIT #{limit}
+    </select>
+
+    <select id="countSample" resultType="int">
+        SELECT
+            count(*)
+        FROM main.sample
+    </select>
+</mapper>

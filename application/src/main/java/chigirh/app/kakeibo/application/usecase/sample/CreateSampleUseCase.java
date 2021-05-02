@@ -3,11 +3,9 @@ package chigirh.app.kakeibo.application.usecase.sample;
 import chigirh.app.kakeibo.application.repository.sample.SampleRepository;
 import chigirh.app.kakeibo.application.usecase.UseCase;
 import chigirh.app.kakeibo.application.usecase.UseCaseBase;
-import chigirh.app.kakeibo.domain.entity.Sample;
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import chigirh.app.kakeibo.domain.entity.sample.Sample;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
+import lombok.Value;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collections;
@@ -15,7 +13,7 @@ import java.util.Collections;
 @UseCase
 @RequiredArgsConstructor
 @Transactional(rollbackFor = Exception.class)
-public class CreateSampleUseCase extends UseCaseBase<CreateSampleUseCase.Input, Void> {
+public class CreateSampleUseCase extends UseCaseBase<CreateSampleUseCase.Input, UseCaseBase.Empty> {
 
     final SampleRepository sampleRepository;
 
@@ -29,15 +27,14 @@ public class CreateSampleUseCase extends UseCaseBase<CreateSampleUseCase.Input, 
     }
 
     @Override
-    protected Void process(Input input) {
+    protected Empty process(final Input input) {
         sampleRepository.insert(Collections.singletonList(input.entity));
-        return null;
+        return Empty.instance();
     }
 
-    @AllArgsConstructor
-    @Data
-    public static class Input implements UseCaseBase.UpdateInput {
-        private Sample entity;
+    @Value
+    public static class Input implements UseCaseBase.Input {
+        Sample entity;
     }
 
 }

@@ -1,17 +1,16 @@
 package chigirh.app.kakeibo.web.interceptor;
 
 import chigirh.app.kakeibo.domain.error.system.KakeiboSystemError;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.servlet.ModelAndView;
 
 @ControllerAdvice
-public class SystemErrorInterCeptor {
+public class SystemErrorInterceptor {
 
     @ExceptionHandler(KakeiboSystemError.class)
-    public ModelAndView testExceptionHandle(KakeiboSystemError e, ModelAndView mav) {
-        mav.addObject("error-message", e.getMessage());
-        mav.setViewName("error/index");
-        return mav;
+    public String SystemErrorHandle(KakeiboSystemError e, Model model) {
+        model.addAttribute("error-message", e.getMessage());
+        return "error/index";
     }
 }
