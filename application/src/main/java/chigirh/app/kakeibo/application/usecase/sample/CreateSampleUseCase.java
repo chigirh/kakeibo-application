@@ -7,12 +7,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Arrays;
 import java.util.Collections;
 
 @Component
 @RequiredArgsConstructor
+@Transactional(rollbackFor = Exception.class)
 public class CreateSampleUseCase extends UpdateUsecase<CreateSampleUseCase.Input, Void> {
 
     final SampleRepository sampleRepository;
