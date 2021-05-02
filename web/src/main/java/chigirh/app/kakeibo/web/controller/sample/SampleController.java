@@ -76,7 +76,7 @@ public class SampleController {
         createSampleUseCase.invoke(new Sample(form.getKey(), form.getValue(), 1));
 
         model.addAttribute("message", "success!!");
-        return "sample/index";
+        return index(model, 1);
     }
 
     // エラーメッセージを画面遷移せずに表示する場合にはControllerにhandlerを実装する
