@@ -1,4 +1,6 @@
 dependencies {
     implementation project(':domain')
+    
+    // @Transactionalを利用するため
     implementation 'org.springframework.boot:spring-boot-starter-jdbc:2.4.5'
 }
