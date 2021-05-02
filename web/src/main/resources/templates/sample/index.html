@@ -5,8 +5,9 @@
     <title>Sample Page.</title>
 </head>
 <body>
-    <h1 th:text="${message}"></h1>
-    <h1>サンプル登録</h1>
+    <h1>サンプル画面</h1>
+    <h3>サンプル登録</h3>
+    <p th:text="${message}"></p>
     <form th:action="@{/sample/create}" th:object="${form}" method="post">
         <input type="text" th:field="*{key}">
         <input type="text" th:field="*{value}">
