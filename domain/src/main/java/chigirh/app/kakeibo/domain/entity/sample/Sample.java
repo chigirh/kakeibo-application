@@ -1,4 +1,4 @@
-package chigirh.app.kakeibo.domain.entity;
+package chigirh.app.kakeibo.domain.entity.sample;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
